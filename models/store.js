@@ -12,19 +12,8 @@ module.exports = function(sequelize, DataTypes) {
     },    
   });
   
-  var Item = sequelize.define("Product", { 
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    item: {
-      type: Datatype.STRING,
-      allowNull:false,
-      type: DataTypes.INTEGER
-    },  
-    });    
-   return Item;
+ 
+   return Store;
   }
 
 
