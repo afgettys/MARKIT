@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
     },    
-  })};
+  });
 
   Item.associate = function(models) {
     Item.belongsTo(models.Store, {
@@ -15,3 +15,4 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   return Item;
+}
