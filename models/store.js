@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Store = sequelize.define("Place", { 
+  var Store = sequelize.define("Store", { 
     id:{
       autoIncrement:true,
       primaryKey:true,
@@ -16,16 +16,4 @@ module.exports = function(sequelize, DataTypes) {
    return Store;
   }
 
-
-  //Item: {
-    //type: DataTypes.STRING,
-    //defaultValue: false,
-    //allowNull: false,
-    
-
-  //Notes:{
-   // type: DataTypes.TEXT,
-   // defaultValue: false,
-   // allowNull: false,
-  //}
 

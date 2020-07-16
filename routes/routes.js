@@ -1,29 +1,29 @@
 var db = require("../models");
 module.exports = function(app) {
-    app.get("/api/tobuy", function(req, res) {
+    app.get("/api/store", function(req, res) {
         
-        db.Tobuy.findAll({}).then(function(dbTobuy) {
-        res.json(dbTobuy);
+        db.List.findAll({}).then(function(dbList) {
+        res.json(dbList);
         });
 });
-    app.post("/api/tobuy", function(req, res) {
-        db.Tobuy.create({
+    app.post("/api/store", function(req, res) {
+        db.List.create({
         text: req.body.text,
         complete: req.body.complete
-        }).then(function(dbTobuy) {
-            res.json(dbTobuy);
+        }).then(function(dbList) {
+            res.json(dbList);
         })
         .catch(function(err) {
             res.json(err);
 });
     });
-    app.delete("/api/tobuy/:id", function(req, res) {
-        db.Tobuy.destroy({
+    app.delete("/api/store/:id", function(req, res) {
+        db.List.destroy({
         where: {
             id: req.params.id
         }
-        }).then(function(dbTobuy) {
-        res.json(dbTobuy);
+        }).then(function(dbList) {
+        res.json(dbList);
         });
     });
 };
