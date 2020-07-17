@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Item = sequelize.define("Item", { 
+  var Item = sequelize.define("item", { 
     Item: {
       type: DataTypes.TEXT,
       allowNull: false,
