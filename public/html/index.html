@@ -13,29 +13,46 @@
 </head>
 
 <body>
-
+  <div id="app" class="">
     <!--Image-->
-    <img src="MarkIT2500.png" style="width:100%" height="500px">
-    <div>
-      <div class="container" style="padding: 40px">
-  
-        <!--Store-->
-        <div class="input-field">
-            <i class="material-icons prefix red-text">store</i>
-            <input id="Store" type="text" class="validate">
-            <label for="Store">Store / Name of List</label>
+    <img src="../img/MarkIT2500.png" style="width:100%" height="500px">
+    <div id="background"></div>
+    <div class="container">
+      <!--Store-->
+      <div class="input-field col 4">
+        <i class="material-icons prefix red-text">store</i>
+        <input id="Store" type="text" class="validate">
+        <label for="Store">Store / Name of List</label>
+      </div>
+      <!--List-->
+      <div class="row">
+        <form class="col s12" action="#">
+          <!--<div class="chips chips-placeholder"></div>-->
+          <div class="white container">
+            <div id="tab-tasks">
+              <div class="input-field">
+                <input onfocus="this.value=''" v-model="itemName" placeholder="What to add?"
+                  @keydown.enter="addToList()">
+              </div>
+              <div class="collection">
+                <uncompleted v-for="(item, index) in items" v-if="!item.done" v-bind:text="item.text"
+                  v-bind:done="item.done" v-bind:index="index" v-on:act-remove="removeFromList"
+                  v-on:act-update="updateStatus"></uncompleted>
+              </div>
+            </div>
+            <div id="tab-completed">
+              <div class="collection">
+                <completed v-for="(item, index) in items" v-if="item.done" v-bind:text="item.text"
+                  v-bind:done="item.done" v-bind:index="index" v-on:act-remove="removeFromList"
+                  v-on:act-update="updateStatus"></completed>
+              </div>
+            </div>
           </div>
-  
-          <!--Chips-->
-          <div class="chips chips-placeholder"></div>
-  
-          <!--Notes-->
           <div class="input-field col s6">
             <i class="material-icons prefix purple-text">comment</i>
             <input id="icon_telephone" type="tel" class="validate">
             <label for="icon_telephone">Notes</label>
           </div>
-  
           <!--Receipt Upload-->
           <div class="col s6">
             <form action="" id="upload">
@@ -52,52 +69,46 @@
                     <input type="file" name="file" id="file">
                   </div>
                   <div class="file-path-wrapper">
-                    <input id="update_val" type="text" class="file-path validate" placeholder="Upload your receipt to keep track of expenses.">
+                    <input id="update_val" type="text" class="file-path validate" placeholder="Select an image">
                   </div>
                 </div>
+
                 <br />
+
               </fieldset>
             </form>
           </div>
-  
-          <!--Save List Button-->
-          <!-- <button class="btn waves-effect waves-light btn orange " type="submit" name="action">Save List
-            <i class="material-icons left">local_grocery_store</i>
-          </button> -->
-          <a onclick="M.toast({html: 'Your list is saved!'})" class="btn waves-effect waves-light btn-large orange"
-            type="submit" name="action">Save List
-            <i class="material-icons left">local_grocery_store</i></a>
-        </div>
       </div>
     </div>
-  
-  
-    <!--Footer-->
-    <footer class="page-footer green">
-      <div class="row">
-        <div class="col s6">
-          <h4 class="white-text">MarkIT</h4>
-          <p class="white-text">Never forget your list with MarkIT, where you can easily create and update
-            multiple lists, take extra notes and even upload the image of your receipts.
-            Great for business owners and busy moms!
-          </p>
-        </div>
-        <div class="fixed-action-btn"><a class="btn-floating btn-large pulse red" href="lists.html"><i></i>LISTS</a></div>
+    </form>
+
+    <!-- <button class="btn waves-effect waves-light btn orange " type="submit" name="action">Save List
+<i class="material-icons left">local_grocery_store</i>
+</button> -->
+    <a onclick="M.toast({html: 'Your list is saved!'})" class="btn waves-effect waves-light btn-large orange"
+      type="submit" name="action">Save List
+      <i class="material-icons left">local_grocery_store</i></a>
+  </div>
+  </div>
+  </div>
+
+
+
+  <!--Footer-->
+  <footer class="page-footer green">
+    <div class="row">
+      <div class="col s6">
+        <h4 class="white-text">MarkIT</h4>
+        <p class="white-text">Never forget your list with MarkIT, where you can easily create and update
+          multiple lists, take extra notes and even upload the image of your receipts.
+          Great for business owners and busy moms!
+        </p>
       </div>
-      <div class="footer-copyright">© 2020 Copyright
-  
-    </footer>
-  </body>
-
-
-
-
-
-
-
-
-
-
+      <div class="fixed-action-btn"><a class="btn-floating btn-large pulse red" href="lists.html"><i></i>LISTS</a></div>
+    </div>
+    <div class="footer-copyright">© 2020 Copyright
+  </footer>
+  </div>
 
   <script>
     // Toast - https://materializecss.com/toasts.html
@@ -115,20 +126,6 @@
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="..//js/action.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-  
-  <script>//Temporary JS, MUST BE REALLOCATED!
-
-    // Chips - https://materializecss.com/chips.html
-    var tag_placeholder = document.querySelectorAll(".chips-placeholder");
-    M.Chips.init(tag_placeholder, {
-      placeholder: 'Enter your items',
-      secondaryPlaceholder: 'Add more!'
-    })
-    // Toast - https://materializecss.com/toasts.html
-    var toast = document.addEventListener()
-    var submit = M.toast({ html: 'Your list is saved!' })
-  </script>
-  
   <script>
     Vue.component('uncompleted', {
       props: ['text', 'done', 'index',],
