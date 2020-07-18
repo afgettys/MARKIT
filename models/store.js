@@ -6,9 +6,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },    
     Name: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(200),
       allowNull: false,
-      primaryKey: true,
     },    
   });
 

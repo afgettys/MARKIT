@@ -1,15 +1,18 @@
 var db = require("../models");
+const {DataTypes} = require("sequelize")
+const store = require("../models/store")(db.sequelize, DataTypes)
+
 module.exports = function(app) {
     app.get("/api/store", function(req, res) {
         
-        db.Store.findAll({}).then(function(dbList) {
+        store.findAll({}).then(function(dbList) {
         res.json(dbList);
         });
 });
     app.post("/api/store", function(req, res) {
-    console.log("Enter Here");
-        db.Store.create({
-        text: req.body.text,
+    console.log("Enter Here", req.body);
+        store.create({
+        name: req.body.itemName,
         complete: req.body.complete
         }).then(function(dbList) {
             res.json(dbList);
@@ -19,7 +22,7 @@ module.exports = function(app) {
 });
     });
     app.delete("/api/store/:id", function(req, res) {
-        db.Store.destroy({
+        store.destroy({
         where: {
             id: req.params.id
         }

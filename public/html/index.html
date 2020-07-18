@@ -159,6 +159,7 @@
       },
       methods: {
         addToList() {
+          window.localstorage
           $.ajax("/api/store", {    
             data: JSON.stringify({itemName:this.itemName}),
             contentType: 'application/json',
