@@ -85,9 +85,6 @@
     </div>
     </form>
 
-    <!-- <button class="btn waves-effect waves-light btn orange " type="submit" name="action">Save List
-<i class="material-icons left">local_grocery_store</i>
-</button> -->
     <a onclick="M.toast({html: 'Your list is saved!'})" class="btn waves-effect waves-light btn-large orange"
       type="submit" name="action">Save List
       <i class="material-icons left">local_grocery_store</i></a>
@@ -103,7 +100,7 @@
       <div class="col s6">
         <h4 class="white-text">MarkIT</h4>
         <p class="white-text">Never forget your list with MarkIT, where you can easily create and update
-          multiple lists, take extra notes and even upload the image of your receipts.
+          multiple lists, take extra notes and even upload the image of your receipt.
           Great for business owners and busy moms!
         </p>
       </div>
@@ -219,36 +216,11 @@
     $
   </script>
 
-<script>//Temporary JS, MUST BE REALLOCATED!
-
-  // Chips - https://materializecss.com/chips.html
-  var tag_placeholder = document.querySelectorAll(".chips-placeholder");
-  M.Chips.init(tag_placeholder, {
-    placeholder: 'Enter your items',
-    secondaryPlaceholder: 'Add more!'
-  })
-  // Toast - https://materializecss.com/toasts.html
+<script>
+  // Toast
   var toast = document.addEventListener()
   var submit = M.toast({ html: 'Your list is saved!' })
 </script>
-<!-- <script>
-$(document).ready(function(){
-$('.carousel').carousel({fullWidth:true}).css('height', $(window).height)
-})
 
-</script>
-<script>
-  .carousel-item>img{
-    width: 100%;
-    height: 100%;
-  }
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var drop = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(drop, options);
-  });
-
-</script> -->
 
 </html>

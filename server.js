@@ -11,8 +11,6 @@ app.use(express.static("public"));
 
 require("./routes/routes.js")(app)
 
-// app.get("/",(req,res)=>res.send("Hello"))
-
 app.use("/",router);
 
 // Syncing our database and logging a message to the user upon success
