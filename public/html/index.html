@@ -156,7 +156,7 @@
       methods: {
         addToList() {
           window.localstorage
-          $.ajax("/api/store", {    
+          $.ajax("/api/item", {    
             data: JSON.stringify({itemName:this.itemName}),
             contentType: 'application/json',
             type: 'POST',
